@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Cinestar</string>
+
+    <string-array name="peliculas">
+        <item>El Señor de los Anillos</item>
+        <item>Vengadores 2: La eran de Ultron</item>
+        <item>Batman v Superman</item>
+        <item>La vida es bella</item>
+    </string-array>
+
 </resources>
