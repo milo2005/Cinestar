@@ -24,7 +24,52 @@
         android:textColor="#ffffff"
         android:text="Nombre Pelicula"
         android:layout_alignBottom="@id/img"
+        android:padding="@dimen/small"
         />
+
+    <ImageView
+        android:id="@+id/icon_time"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:src="@drawable/ic_alarm"
+        android:layout_below="@id/img"
+        android:layout_margin="@dimen/small"
+        />
+    <TextView
+        android:id="@+id/txt_time"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/icon_time"
+        android:layout_alignBottom="@id/icon_time"
+        android:layout_alignTop="@id/icon_time"
+        android:gravity="center_vertical"
+        android:text="hola"
+        />
+    <ImageView
+        android:id="@+id/icon_score"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:src="@drawable/ic_star"
+        android:layout_below="@id/icon_time"
+        android:layout_marginLeft="@dimen/small"
+        android:layout_marginRight="@dimen/small"
+        android:layout_marginBottom="@dimen/small"
+        />
+
+    <TextView
+        style="@style/Base.TextAppearance.AppCompat.Body2"
+        android:id="@+id/txt_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/icon_score"
+        android:layout_alignBottom="@id/icon_score"
+        android:layout_alignTop="@id/icon_score"
+        android:gravity="center_vertical"
+        android:text="hola"
+
+        />
+
 
 
 </RelativeLayout>
