@@ -16,5 +16,15 @@
         android:background="@drawable/mask_img"
         />
 
+    <TextView
+        style="@style/Base.TextAppearance.AppCompat.Display1"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:text="Nombre Pelicula"
+        android:layout_alignBottom="@id/img"
+        />
+
 
 </RelativeLayout>
