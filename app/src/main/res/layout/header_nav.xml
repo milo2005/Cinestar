@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="#333333"
+    android:padding="@dimen/small"
+    android:gravity="bottom"
+    >
+
+    <ImageView
+        android:id="@+id/nav_header_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#33b5e5"
+        />
+
+    <TextView
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:id="@+id/nav_header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="@dimen/small"
+        android:text="Dario Chamorro"
+        />
+
+</LinearLayout>

@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Cinestar</string>
+    <string name="nav_terror">Terror</string>
+    <string name="nav_comedia">Comedia</string>
+    <string name="nav_accion">Accion</string>
+    <string name="nav_titile_perfil">Perfil</string>
+    <string name="nav_datos">Mis Datos</string>
+    <string name="logout">Cerrar Sesion</string>
 
     <string-array name="peliculas">
         <item>El Señor de los Anillos</item>
