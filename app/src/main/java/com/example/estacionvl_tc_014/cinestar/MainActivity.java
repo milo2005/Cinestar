@@ -1,5 +1,6 @@
 package com.example.estacionvl_tc_014.cinestar;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.estacionvl_tc_014.cinestar.adapters.PeliculaAdapter;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements DrawerLayout.DrawerListener, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements DrawerLayout.DrawerListener, NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
 
     ListView list;
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
         adapter = new PeliculaAdapter(this, data);
 
         list.setAdapter(adapter);
+        list.setOnItemClickListener(this);
 
         cargarPeliculas();
 
@@ -134,5 +137,11 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
     public boolean onNavigationItemSelected(MenuItem item) {
         drawer.closeDrawers();
         return false;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(this, DetalleActivity.class);
+        startActivity(intent);
     }
 }
