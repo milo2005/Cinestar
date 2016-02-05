@@ -1,7 +1,12 @@
 package com.example.estacionvl_tc_014.cinestar;
 
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import com.example.estacionvl_tc_014.cinestar.adapters.PeliculaAdapter;
@@ -10,12 +15,17 @@ import com.example.estacionvl_tc_014.cinestar.models.Pelicula;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements DrawerLayout.DrawerListener, NavigationView.OnNavigationItemSelectedListener {
 
     ListView list;
 
     List<Pelicula> data;
     PeliculaAdapter adapter;
+
+    DrawerLayout drawer;
+    NavigationView nav;
+    ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +40,30 @@ public class MainActivity extends AppCompatActivity {
         list.setAdapter(adapter);
 
         cargarPeliculas();
+
+        //METODOS DEL DRAWER LAYOUT
+
+        drawer = (DrawerLayout) findViewById(R.id.drawer);
+        nav = (NavigationView) findViewById(R.id.nav);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toggle = new ActionBarDrawerToggle(this, drawer
+                , R.string.open_nav, R.string.close_nav);
+
+        drawer.setDrawerListener(this);
+        nav.setNavigationItemSelectedListener(this);
+
+
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        toggle.syncState();
+    }
+
+    //region Cargar Peliculas
     public void cargarPeliculas(){
         Pelicula p1 = new Pelicula();
         p1.setNombre("Batman v Superman");
@@ -65,5 +97,42 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
 
+    }
+    //endregion
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(toggle.onOptionsItemSelected(item))
+            return  true;
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDrawerSlide(View drawerView, float slideOffset) {
+        toggle.onDrawerSlide(drawerView,slideOffset);
+    }
+
+    @Override
+    public void onDrawerOpened(View drawerView) {
+        toggle.onDrawerOpened(drawerView);
+    }
+
+    @Override
+    public void onDrawerClosed(View drawerView) {
+        toggle.onDrawerClosed(drawerView);
+    }
+
+    @Override
+    public void onDrawerStateChanged(int newState) {
+        toggle.onDrawerStateChanged(newState);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        drawer.closeDrawers();
+        return false;
     }
 }

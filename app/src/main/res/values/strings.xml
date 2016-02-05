@@ -6,6 +6,8 @@
     <string name="nav_titile_perfil">Perfil</string>
     <string name="nav_datos">Mis Datos</string>
     <string name="logout">Cerrar Sesion</string>
+    <string name="open_nav">Abriste el menu</string>
+    <string name="close_nav">Cerraste el menu</string>
 
     <string-array name="peliculas">
         <item>El Señor de los Anillos</item>
