@@ -18,6 +18,7 @@
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
@@ -61,5 +62,16 @@
 
 
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom|right"
+        android:layout_margin="@dimen/small"
+        android:src="@drawable/ic_star_white"
+
+        />
 
 </android.support.design.widget.CoordinatorLayout>
