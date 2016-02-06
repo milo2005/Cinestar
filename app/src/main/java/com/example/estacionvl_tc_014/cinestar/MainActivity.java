@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.example.estacionvl_tc_014.cinestar.adapters.PeliculaAdapter;
 import com.example.estacionvl_tc_014.cinestar.models.Pelicula;
+import com.example.estacionvl_tc_014.cinestar.util.C;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
 
     ListView list;
 
-    List<Pelicula> data;
+
     PeliculaAdapter adapter;
 
     DrawerLayout drawer;
@@ -36,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
 
         list = (ListView) findViewById(R.id.list);
 
-        data = new ArrayList<>();
-        adapter = new PeliculaAdapter(this, data);
+        C.data = new ArrayList<>();
+        adapter = new PeliculaAdapter(this, C.data);
 
         list.setAdapter(adapter);
         list.setOnItemClickListener(this);
@@ -93,10 +94,10 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
         p4.setCalificacion(4.0f);
         p4.setUrl("https://qph.is.quoracdn.net/main-qimg-2292e23e3c5310e8cef43240ef58cbee?convert_to_webp=true");
 
-        data.add(p1);
-        data.add(p2);
-        data.add(p3);
-        data.add(p4);
+        C.data.add(p1);
+        C.data.add(p2);
+        C.data.add(p3);
+        C.data.add(p4);
 
         adapter.notifyDataSetChanged();
 
