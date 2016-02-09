@@ -8,6 +8,10 @@
     <string name="logout">Cerrar Sesion</string>
     <string name="open_nav">Abriste el menu</string>
     <string name="close_nav">Cerraste el menu</string>
+    <string name="hint_usr">Usuario</string>
+    <string name="hint_pass">Contraseña</string>
+    <string name="btn_reg">Registar</string>
+    <string name="btn_in">Entrar</string>
 
     <string-array name="peliculas">
         <item>El Señor de los Anillos</item>
