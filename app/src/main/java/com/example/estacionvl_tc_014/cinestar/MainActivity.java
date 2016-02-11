@@ -1,6 +1,7 @@
 package com.example.estacionvl_tc_014.cinestar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +15,7 @@ import android.widget.ListView;
 import com.example.estacionvl_tc_014.cinestar.adapters.PeliculaAdapter;
 import com.example.estacionvl_tc_014.cinestar.models.Pelicula;
 import com.example.estacionvl_tc_014.cinestar.util.C;
+import com.example.estacionvl_tc_014.cinestar.util.Preferences;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,6 +138,17 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.nav_logout){
+            SharedPreferences preferences = getSharedPreferences(Preferences.PREFERENCE_NAME
+                    ,MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean(Preferences.PREFERENCE_LOGGED, false);
+            editor.commit();
+
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
         drawer.closeDrawers();
         return false;
     }

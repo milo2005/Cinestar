@@ -1,6 +1,7 @@
 package com.example.estacionvl_tc_014.cinestar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.estacionvl_tc_014.cinestar.models.Usuario;
+import com.example.estacionvl_tc_014.cinestar.util.Preferences;
 import com.orm.SugarContext;
 
 import java.util.List;
@@ -51,6 +53,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 ,"usr = ? AND pass = ?",u,p);
 
         if(result.size()>0){
+            SharedPreferences preferences = getSharedPreferences(Preferences.PREFERENCE_NAME
+                    ,MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            editor.putBoolean(Preferences.PREFERENCE_LOGGED, true);
+            editor.commit();
+
+
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }else{
